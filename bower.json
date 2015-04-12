@@ -1,0 +1,11 @@
+{
+  "name": "ScatterPic",
+  "version": "0.0.1",
+  "dependencies": {
+    "phaser": "2.3.0"
+  },
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ]
+}

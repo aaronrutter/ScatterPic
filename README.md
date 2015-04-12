@@ -1,2 +1,0 @@
-# ScatterPic
-Fun little game
