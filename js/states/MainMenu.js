@@ -5,6 +5,14 @@ MyGame.MainMenu = function(){};
 MyGame.MainMenu.prototype = {
   preload: function(){
     this.currentPlayState = this.cache.getText('Music');
+    if(this.cache.checkImageKey('fullSize')){
+      var temp = this.cache.getImage('fullSize');
+      var image = {h:temp.naturalHeight,w:temp.naturalWidth};
+      this.dimensions = {};
+      this.dimensions.y = image.h/this.matrix.value;
+      this.dimensions.x = image.w/this.matrix.value;
+      this.cache.addText('Dimensions', null, {dimensions:this.dimensions});
+    }
   },
   create: function(){
     this.music = this.add.audio('music', 1, true);
