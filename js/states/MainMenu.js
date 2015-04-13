@@ -23,7 +23,7 @@ MyGame.MainMenu.prototype = {
     bmd.ctx.fillStyle = '#00ff00';
     bmd.ctx.fill();
     var settingText = this.add.text(0,0,'settings');
-    settingText.fontSize = width*0.3;
+    settingText.fontSize = width*0.25;
     settingText.anchor.set(0.5);
     settingText.align = 'center';
 

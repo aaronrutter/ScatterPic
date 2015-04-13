@@ -15,7 +15,6 @@ MyGame.GamePlay.prototype = {
     this.currentPlayState = this.cache.getText('Music');
     this.load.spritesheet('scatter', this.picture.url, this.dimensions.x, this.dimensions.y);
   },
-  //TODO: add move traker text
   /***
    * Starts physics engine and creates collision group
    * Creates play image group and call to create play image pieces
@@ -233,7 +232,7 @@ MyGame.GamePlay.prototype = {
     bmd.ctx.fillStyle = '#00ff00';
     bmd.ctx.fill();
     var settingText = this.add.text(0,0,'settings');
-    settingText.fontSize = width*0.3;
+    settingText.fontSize = width*0.25;
     settingText.anchor.set(0.5);
     settingText.align = 'center';
 
