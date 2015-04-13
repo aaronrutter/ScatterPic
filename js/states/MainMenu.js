@@ -5,6 +5,7 @@ MyGame.MainMenu = function(){};
 MyGame.MainMenu.prototype = {
   preload: function(){
     this.currentPlayState = this.cache.getText('Music');
+    this.matrix = this.cache.getText('Matrix');
     if(this.cache.checkImageKey('fullSize')){
       var temp = this.cache.getImage('fullSize');
       var image = {h:temp.naturalHeight,w:temp.naturalWidth};
