@@ -59,8 +59,6 @@ MyGame.MainMenu.prototype = {
     );
     this.play.anchor.set(0.5);
     this.play.alpha = 0.1;
-    
-    
 
     this.playText = this.add.text(0,0,"Start Game");
 

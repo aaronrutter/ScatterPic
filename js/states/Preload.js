@@ -40,11 +40,9 @@ MyGame.Preload.prototype = {
     this.load.onLoadComplete.add(this.loadComplete, this);
   },
   create: function() {
-    console.log("In create");
     this.time.events.add(Phaser.Timer.SECOND,this.menu,this);
   },
   menu: function(){
-    
     this.state.start('MainMenu');
   },
   loadStart: function(){
