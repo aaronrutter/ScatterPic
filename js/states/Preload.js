@@ -11,9 +11,21 @@ MyGame.Preload.prototype = {
     bmd.ctx.rect(0,0,700,150);
     bmd.ctx.fillStyle = '#00ff00';
     bmd.ctx.fill();
-    this.preloadBar = this.add.sprite(this.game.world.centerX - 350, this.game.world.centerY,bmd);
+    this.preloadBar = this.add.sprite(this.world.centerX - 350, this.world.centerY - 75,bmd);
     //this.preloadBar.anchor.setTo(0.5);
     this.load.setPreloadSprite(this.preloadBar);
+
+    this.loadText = this.add.text(this.world.centerX,this.world.centerY,"0%");
+    this.loadText.anchor.set(0.5);
+    this.loadText.align = 'center';
+    this.loadText.font = 'Arial';
+    this.loadText.fontWeight = 'bold';
+    this.loadText.fontSize = this.world.height * 0.1;
+    this.loadText.fill = "#FFFFFF";
+
+    //Stroke
+    this.loadText.stroke = '#000000';
+    this.loadText.strokeThickness = 6;
 
     this.matrix = this.cache.getText('Matrix');
     this.picture = this.cache.getText('Image');
@@ -28,16 +40,20 @@ MyGame.Preload.prototype = {
     this.load.onLoadComplete.add(this.loadComplete, this);
   },
   create: function() {
-    console.log(this);
+    console.log("In create");
+    this.time.events.add(Phaser.Timer.SECOND,this.menu,this);
+  },
+  menu: function(){
+    
     this.state.start('MainMenu');
   },
   loadStart: function(){
-   console.log("Load Started"); 
+   this.loadText.setText("1%"); 
   },
   fileComplete: function(progress, key, success, loaded, files){
-    console.log(progress+" "+key+" "+success+" "+loaded+" "+files);
+    this.loadText.setText(progress+"%");
   },
   loadComplete: function(){
-    console.log("done");
+    this.loadText.setText("100%");
   }
 };
