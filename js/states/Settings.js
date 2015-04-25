@@ -205,7 +205,7 @@ MyGame.Settings.prototype = {
     }
   },
   fluff: function(w,h){
-    var fluff = this.add.text(this.world.centerX, h*2.1, "fileSystem: " + chrome.fileSystem);
+    var fluff = this.add.text(this.world.centerX, h*2.1, "fluff");
 
     fluff.anchor.set(0.5);
     fluff.align = 'center';

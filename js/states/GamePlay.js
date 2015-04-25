@@ -203,12 +203,18 @@ MyGame.GamePlay.prototype = {
           var text = this.add.text(0,0,"Q"+fr+", F"+pivk.frame);
           text.anchor.set(0.5);
           item.addChild(text);
+          item.body.onBeginContact.add(this.contact, this);
         } else {
           this.e = {x:xValue,y:yValue,q:fr};
         }
         fr++;
       }
     }
+  },
+  contact: function(body, shapeA, shapeB, equation){
+    console.log("body",body);
+    console.log("shape A",shapeA);
+    console.log("shape B",shapeB);
   },
   createGetAtArray: function(){
     var data = [];
