@@ -27,17 +27,15 @@ MyGame.ImageSelect.prototype = {
     var w2 = w10 * 0.25;
     var h10 = this.world.height * 0.15;
 
+    var bkgd = this.make.bitmapData(400, this.world.height * 0.75);
+    bkgd.fill(50,50,50);
+
     var bmd2 = this.make.bitmapData(w10,w10);
     bmd2.draw('fullSize',0,0,w10,h10);
     bmd2.update();
-    this.add.sprite(0,0,bmd2);
-    
-    var bmd2a = this.add.bitmapData(w10,w10);
-    bmd2a.ctx.beginPath();
-    bmd2a.ctx.rect(0,0,w10,w10);
-    bmd2a.ctx.fillStyle = '#FF0000';
-    bmd2a.ctx.fill();
-    var area, currentImg, imgScale;
+    var place = this.add.sprite(0,0,bmd2);
+    var bg = this.add.sprite(this.world.width * 0.1,this.world.height * 0.125, bkgd);
+    bg.addChild(place);
 
     
 
