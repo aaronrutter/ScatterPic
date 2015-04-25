@@ -210,15 +210,6 @@ MyGame.Settings.prototype = {
     fluff.anchor.set(0.5);
     fluff.align = 'center';
   },
-  settings: function(){
-    this.state.start('Settings');
-  },
-  menu: function(){
-    this.state.start('Preload');
-  },
-  credits: function(){
-    this.state.start('GameOver');
-  },
   changeMatrix3: function(){
     this.cache.addText('Matrix', null, {value:3});
   },
@@ -256,6 +247,15 @@ MyGame.Settings.prototype = {
     var button2 = this.add.button(this.world.width - width*1.1, width*0.5,bmd2,this.credits,this);
     button2.anchor.set(0.5);
     button2.addChild(creditText);
+  },
+  settings: function(){
+    this.state.start('Settings');
+  },
+  menu: function(){
+    this.state.start('Preload');
+  },
+  credits: function(){
+    this.state.start('GameOver');
   },
   createBottomButtons: function(){
     var width = this.world.width/16;
