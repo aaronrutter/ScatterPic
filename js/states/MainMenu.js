@@ -16,9 +16,12 @@ MyGame.MainMenu.prototype = {
     }
   },
   create: function(){
-    this.music = this.add.audio('music', 1, true);
-    if(this.currentPlayState.value == "on"){
-      this.music.play();
+    console.log(this.sound._sounds.length);
+    if(!this.sound._sounds.length){
+      this.music = this.add.audio('music', 1, true);
+      if(this.currentPlayState.value === "on"){
+        this.music.play();
+      }
     }
     this.createPlayButton();
     this.createTopButtons();
@@ -59,7 +62,6 @@ MyGame.MainMenu.prototype = {
     );
     this.play.anchor.set(0.5);
     this.play.alpha = 0.1;
-
     this.playText = this.add.text(0,0,"Start Game");
 
     //Center Text

@@ -191,7 +191,7 @@ MyGame.Settings.prototype = {
     this.state.start('Settings');
   },
   menu: function(){
-    this.state.start('Preload');
+    this.state.start('MainMenu');
   },
   credits: function(){
     this.state.start('GameOver');
