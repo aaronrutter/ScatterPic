@@ -16,7 +16,6 @@ MyGame.MainMenu.prototype = {
     }
   },
   create: function(){
-    console.log(this.sound._sounds.length);
     if(!this.sound._sounds.length){
       this.music = this.add.audio('music', 1, true);
       if(this.currentPlayState.value === "on"){

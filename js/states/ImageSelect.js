@@ -23,22 +23,29 @@ MyGame.ImageSelect.prototype = {
     console.log(this);
   },
   imgSelect: function(){
-    var w10 = this.world.width * 0.15 ;
+    var w10 = this.world.width * 0.20 ;
     var w2 = w10 * 0.25;
-    var h10 = this.world.height * 0.15;
+    var h10 = this.world.height * 0.20;
 
-    var bkgd = this.make.bitmapData(400, this.world.height * 0.75);
+    var bkgd = this.make.bitmapData(this.world.width * 0.25, this.world.height * 0.85);
     bkgd.fill(50,50,50);
-
-    var bmd2 = this.make.bitmapData(w10,w10);
-    bmd2.draw('fullSize',0,0,w10,h10);
-    bmd2.update();
-    var place = this.add.sprite(0,0,bmd2);
-    var bg = this.add.sprite(this.world.width * 0.1,this.world.height * 0.125, bkgd);
-    bg.addChild(place);
-
     
-
+    var offset = this.world.width * 0.05;
+    var size = (this.world.width * 0.25) + offset;
+    var space = this.world.width * 0.025;
+    var i = 0;
+    for(i=0;i<this.pictures.length;i++){
+      var bmd2 = this.make.bitmapData(w10,w10);
+      bmd2.draw(this.pictures[i].word,0,0,w10,h10);
+      bmd2.update();
+      var place = this.add.sprite(space,space,bmd2);
+      var bg = this.add.sprite(offset + (size *  i),this.world.height * 0.075, bkgd);
+      bg.addChild(place);
+      var word = this.add.text(this.world.width * 0.125,this.world.height * 0.3,this.pictures[i].word);
+      word.fill = "#28cdff";
+      word.anchor.set(0.5);
+      bg.addChild(word);
+    }
     /** 
     for(i=0;i<this.pictures.length;i++){
       if(i===0){
